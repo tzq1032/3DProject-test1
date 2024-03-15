@@ -4,12 +4,12 @@
 </template>
 
 <script setup lang="ts">
+
 import { usePlatform } from '../store';
 import { onMounted, ref} from 'vue';
 
 const store = usePlatform();
 const canvas = ref<HTMLCanvasElement>();
-
 onMounted(() =>{
   if(canvas.value) {
     store.freight(canvas.value); // 装载canvas

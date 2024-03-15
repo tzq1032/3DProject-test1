@@ -13,7 +13,6 @@ export class GlbLoader extends Object3D{
   _booth:any;//模型信息
   _model:Object3D|undefined = undefined; // 模型
 
-
   constructor(){
     super();
     // this._booth = booth;
@@ -30,16 +29,10 @@ export class GlbLoader extends Object3D{
     const model = gltf.scene;
     this._model = model;
     this.add(model)
-    console.log(model);
-    
   };
   onLoading = (e:any)=>{
     const per = e.loaded / e.total;
-      // this.loadingMsg = `加载进度:${Math.floor(per * 1000) / 10}%`;
-      console.log(Math.floor(per * 1000) / 10);
-    
-    
-
+    console.log(Math.floor(per * 1000) / 10);
   };
   onLoadError = (e:any)=>{
     console.log(e +"error");

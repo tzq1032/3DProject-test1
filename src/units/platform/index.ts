@@ -14,13 +14,13 @@ export const VER = '1.0';
 * 事件
 */
 export const EVENT = {
-   RUNNING: 'running',
-   GAME_INIT: 'gameInit',
-   GAME_START: 'gameStart',
-   LOADING: 'modelLoading',
-   LOADED: 'modelLoaded',
-   LOAD_FAIL: 'modelLoadFail',
-   GAME_OVER: 'gameOver'
+  RUNNING: 'running',
+  GAME_INIT: 'gameInit',
+  GAME_START: 'gameStart',
+  LOADING: 'modelLoading',
+  LOADED: 'modelLoaded',
+  LOAD_FAIL: 'modelLoadFail',
+  GAME_OVER: 'gameOver'
 };
 const Static = {
   X: 0,
@@ -43,9 +43,7 @@ export class Platform extends EventDispatcher {
   _box:BoxGeometry; //立方体几何信息
   _cube:Mesh;//测试立方体
   _controls:any;//相机控制器
-
   _clock = new Clock();
-
   constructor() {
     super();
     this.__scene = new Scene();
@@ -55,17 +53,14 @@ export class Platform extends EventDispatcher {
     this.__camera.lookAt(new Vector3(0,0,0));
     this.__bg = new Group();
     this.__boothes = new Group();
-   this._box = new BoxGeometry(1,1,1)
-   this._cube = new Mesh(this._box,new MeshBasicMaterial({
-    color:0x00ff00
-   }))
+    this._box = new BoxGeometry(1,1,1)
+    this._cube = new Mesh(this._box,new MeshBasicMaterial({color:0x00ff00}))
     this.__scene.add(
       this.__bg,
       this.__boothes,
       this.getLights(),
       this.__camera,
       this._cube
-      
     );
   }
   /**
@@ -77,7 +72,6 @@ export class Platform extends EventDispatcher {
     this.__renderer = new WebGLRenderer({ canvas, antialias: true });
 		this.__renderer.shadowMap.enabled = true;
     window.addEventListener('resize', this.onResize);
-  
     this.onResize();
     this.animate(0);
   }
@@ -127,8 +121,8 @@ export class Platform extends EventDispatcher {
   }
 
   boothInit(){
-      const g = new GlbLoader();
-      this.__boothes.add(g);
+    const g = new GlbLoader();
+    this.__boothes.add(g);
   }
 
   getLights() {

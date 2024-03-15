@@ -5,15 +5,12 @@ import Platform from "../components/Platform.vue";
 import Home from "../components/Home.vue";
 
 const routes: Array <RouteRecordRaw> = [
-
   {
-      name: 'home',
-      path: '/',
-      component: Home,
-      props: true,
-  
+    name: 'home',
+    path: '/',
+    component: Home,
+    props: true,
   },
-
 
   {
     name: 'platform',
@@ -28,6 +25,7 @@ const routes: Array <RouteRecordRaw> = [
     component: NotFound
   },
 ];
+
 let history = createWebHistory();
 const router = createRouter({
   history,

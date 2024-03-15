@@ -14,7 +14,6 @@ const usePlatform = defineStore({
       platform:undefined,
       visitor:undefined
     }  
-    
   }),
   getters:{
     isLoading():boolean {
@@ -38,6 +37,5 @@ const usePlatform = defineStore({
       this.loadingPercent = data.loaded / data.total;
     },
   }
-
 });
 export default usePlatform;
