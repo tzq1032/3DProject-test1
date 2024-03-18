@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-import NotFound from "../components/404.vue"
-import Platform from "../components/Platform.vue";
+import NotFound from "../pages/404.vue"
+import Platform from "../pages/Platform.vue";
 import Home from "../components/Home.vue";
 
 const routes: Array <RouteRecordRaw> = [

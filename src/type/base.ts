@@ -31,9 +31,5 @@ export interface IModel {
 export interface IConfig {
   bg: IModel, // 背景
   base: IModel, // 默认位置
-  journals: { // 期刊
-    url: string,
-    list: IModel[]
-  },
   boothes: IModel[] // 展位
 }

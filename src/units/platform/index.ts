@@ -1,10 +1,10 @@
+
 import {
   EventDispatcher, WebGLRenderer, Color,Clock,AmbientLight, DirectionalLight, PerspectiveCamera, Scene, Group, Vector3,  BoxGeometry, Mesh,MeshBasicMaterial
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
-// import { GlbLoader,LOAD_EVENT } from './glbLoader';
 import TWEEN, { Tween } from 'three/examples/jsm/libs/tween.module.js';
-import { GlbLoader } from './glbLoader';
+import { GlbLoader, LOAD_EVENT } from './glbLoader';
 
 /**
  * 版本
@@ -14,13 +14,7 @@ export const VER = '1.0';
 * 事件
 */
 export const EVENT = {
-  RUNNING: 'running',
-  GAME_INIT: 'gameInit',
-  GAME_START: 'gameStart',
   LOADING: 'modelLoading',
-  LOADED: 'modelLoaded',
-  LOAD_FAIL: 'modelLoadFail',
-  GAME_OVER: 'gameOver'
 };
 const Static = {
   X: 0,
@@ -117,9 +111,9 @@ export class Platform extends EventDispatcher {
   }
   start(){
     this.ready();
+    this.setBackGround()
    
   }
-
   boothInit(){
     const g = new GlbLoader();
     this.__boothes.add(g);
@@ -141,6 +135,18 @@ export class Platform extends EventDispatcher {
       sun
     );
     return group;
+  }
+  setBackGround(){
+    const group:any = new GlbLoader()
+    group.addEventListener(LOAD_EVENT.LOADING,(e:any)=>{
+      this.onLoading(e.data)
+    })
+  }
+  onLoading=(e:Event)=>{
+    console.log(111111111);
+    const event = {type:EVENT.LOADING,data:e}
+    // const eve = new CustomEvent(Event.LOADING,{detail:e})
+this.dispatchEvent(event)
   }
   /**
    * 动画
