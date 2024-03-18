@@ -9,9 +9,12 @@
 import { usePlatform } from '../store';
 import { computed, onMounted, ref} from 'vue';
 
+
 const store = usePlatform();
 const canvas = ref<HTMLCanvasElement>();
 const LoadingMsg = computed(()=>store.loadingMsg)
+
+
 onMounted(() =>{
   if(canvas.value) {
     store.freight(canvas.value); // 装载canvas

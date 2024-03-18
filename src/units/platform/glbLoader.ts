@@ -31,8 +31,8 @@ export class GlbLoader extends Object3D{
     this.add(model)
   };
   onLoading = (e:Event)=>{
-    console.log(111);
-    console.log(e);
+    // console.log(111);
+    // console.log(e);
 // const eve = new CustomEvent(LOAD_EVENT.LOADING,{detail:e})
     const event = {type:LOAD_EVENT.LOADING,data:e};
     

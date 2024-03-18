@@ -143,7 +143,7 @@ export class Platform extends EventDispatcher {
     })
   }
   onLoading=(e:Event)=>{
-    console.log(111111111);
+    // console.log(111111111);
     const event = {type:EVENT.LOADING,data:e}
     // const eve = new CustomEvent(Event.LOADING,{detail:e})
 this.dispatchEvent(event)
