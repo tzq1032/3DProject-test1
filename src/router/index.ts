@@ -3,11 +3,18 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import NotFound from "../pages/404.vue"
 import Platform from "../pages/Platform.vue";
 import Home from "../components/Home.vue";
+import Login from "../pages/Login.vue";
 
 const routes: Array <RouteRecordRaw> = [
   {
-    name: 'home',
+    name: 'login',
     path: '/',
+    component: Login,
+    props: true,
+  },
+  {
+    name: 'home',
+    path: '/home',
     component: Home,
     props: true,
   },

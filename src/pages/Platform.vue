@@ -11,6 +11,8 @@ import { computed, onMounted, ref} from 'vue';
 
 
 const store = usePlatform();
+console.log(store.instance);
+
 const canvas = ref<HTMLCanvasElement>();
 const LoadingMsg = computed(()=>store.loadingMsg)
 

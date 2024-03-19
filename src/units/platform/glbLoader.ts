@@ -18,25 +18,25 @@ export class GlbLoader extends Object3D{
     // this._booth = booth;
     const dracoLoader =new DRACOLoader();
     this._loader = new GLTFLoader();
-    dracoLoader.setDecoderPath('./gltfdraco')
+    dracoLoader.setDecoderPath('./gltfdraco') 
     dracoLoader.setDecoderConfig({ type:'js'});
     dracoLoader.preload();
     this._loader.setDRACOLoader(dracoLoader);
-    this._loader.load('./model/tunnel.glb', this.onLoad, this.onLoading, this.onLoadError);
+    this._loader.load('./model/cat-2.glb', this.onLoad, this.onLoading, this.onLoadError);
   }
 
   onLoad = (gltf:any)=>{
     const model = gltf.scene;
     this._model = model;
+    model.rotation.y = 45;
+    model.rotation.z = -50;
     this.add(model)
   };
   onLoading = (e:Event)=>{
-    // console.log(111);
-    // console.log(e);
-// const eve = new CustomEvent(LOAD_EVENT.LOADING,{detail:e})
-    const event = {type:LOAD_EVENT.LOADING,data:e};
-    
+    console.log(e);
+    const event = {type:LOAD_EVENT.LOADING,data:e} as never;
     this.dispatchEvent(event)
+    
   };
   onLoadError = (e:any)=>{
     console.log(e +"error");

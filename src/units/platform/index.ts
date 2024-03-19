@@ -1,6 +1,6 @@
 
 import {
-  EventDispatcher, WebGLRenderer, Color,Clock,AmbientLight, DirectionalLight, PerspectiveCamera, Scene, Group, Vector3,  BoxGeometry, Mesh,MeshBasicMaterial
+  EventDispatcher, WebGLRenderer,Event, Color,Clock,AmbientLight, DirectionalLight, PerspectiveCamera, Scene, Group, Vector3,  BoxGeometry, Mesh,MeshBasicMaterial, AxesHelper
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import TWEEN, { Tween } from 'three/examples/jsm/libs/tween.module.js';
@@ -38,6 +38,7 @@ export class Platform extends EventDispatcher {
   _cube:Mesh;//测试立方体
   _controls:any;//相机控制器
   _clock = new Clock();
+  _axeshelper: any;
   constructor() {
     super();
     this.__scene = new Scene();
@@ -47,14 +48,16 @@ export class Platform extends EventDispatcher {
     this.__camera.lookAt(new Vector3(0,0,0));
     this.__bg = new Group();
     this.__boothes = new Group();
-    this._box = new BoxGeometry(1,1,1)
+    this._box = new BoxGeometry(.01,.01,.01)
+    this._axeshelper = new AxesHelper(50)
     this._cube = new Mesh(this._box,new MeshBasicMaterial({color:0x00ff00}))
     this.__scene.add(
       this.__bg,
       this.__boothes,
       this.getLights(),
       this.__camera,
-      this._cube
+      this._cube,
+      this._axeshelper
     );
   }
   /**
@@ -142,11 +145,9 @@ export class Platform extends EventDispatcher {
       this.onLoading(e.data)
     })
   }
-  onLoading=(e:Event)=>{
-    // console.log(111111111);
-    const event = {type:EVENT.LOADING,data:e}
-    // const eve = new CustomEvent(Event.LOADING,{detail:e})
-this.dispatchEvent(event)
+  onLoading=(e:Event)=>{ 
+    const event = {type:EVENT.LOADING,data:e} as never;
+    this.dispatchEvent(event)
   }
   /**
    * 动画
