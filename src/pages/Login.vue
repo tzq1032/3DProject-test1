@@ -39,11 +39,9 @@ let login = ()=>{
 }
 
 let togglePasswordVisibility = ()=> {
-      showPassword.value = !showPassword.value;
+  showPassword.value = !showPassword.value;
     }
-
 </script>
-
 
 <style scoped lang="scss">
   .login_container{
@@ -55,9 +53,9 @@ let togglePasswordVisibility = ()=> {
   .primary {
     text-align: center;
   background-color: #71b0e4;
-}
-.elevation-12{
+  }
+  .elevation-12{
   top: 300px;
-}
+  }
 
 </style>

@@ -16,7 +16,6 @@ console.log(store.instance);
 const canvas = ref<HTMLCanvasElement>();
 const LoadingMsg = computed(()=>store.loadingMsg)
 
-
 onMounted(() =>{
   if(canvas.value) {
     store.freight(canvas.value); // 装载canvas

@@ -3,21 +3,21 @@ import type {LoginFormData} from'../../../type/userType'
 import { reqLogin } from "../../../api/user";
 
 //创建用户仓库
-let useUserStore = defineStore("User",{
+let useUserStore = defineStore({
+  id:"User",
   //存储数据
-state:()=>{
+  state:()=>{
   return{}
-},
-actions:{
+  },
+  actions:{
   async userLogin(data:LoginFormData){
     let result =  await reqLogin(data);
     console.log(result);
   }
 
-},
-getters:{
-
-}
+  },
+  getters:{
+  }
 })
 
 export default useUserStore;
