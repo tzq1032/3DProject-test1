@@ -42,21 +42,21 @@ export class Platform extends EventDispatcher {
   constructor() {
     super();
     this.__scene = new Scene();
-    this.__scene.background = new Color(0xffffff);
-    this.__camera = new PerspectiveCamera(75, Static.WIDTH / Static.HEIGHT, 1, 10000);
-    this.__camera.position.set(5,5,5)
+    this.__scene.background = new Color(0x222222);
+    this.__camera = new PerspectiveCamera(75, Static.WIDTH / Static.HEIGHT, 0.001, 10000);
     this.__camera.lookAt(new Vector3(0,0,0));
     this.__bg = new Group();
     this.__boothes = new Group();
-    this._box = new BoxGeometry(.01,.01,.01)
+    this._box = new BoxGeometry(1,1,1)
     this._axeshelper = new AxesHelper(50)
     this._cube = new Mesh(this._box,new MeshBasicMaterial({color:0x00ff00}))
+    
     this.__scene.add(
       this.__bg,
       this.__boothes,
       this.getLights(),
       this.__camera,
-      this._cube,
+      // this._cube,
       this._axeshelper
     );
   }
@@ -95,11 +95,11 @@ export class Platform extends EventDispatcher {
   }
  //准备动画
   ready() {
-    this.__camera.position.set(1,1,1)
+    this.__camera.position.set(2,4,6)
     this.__camera.lookAt(new Vector3(0,0,0));
     const v = new Vector3();
-    v.x = 7;
-    v.y = 7;
+    v.x = 0;
+    v.y = 30;
     v.z = 7;
 
     const t = new Tween(this.__camera.position).to(v, Static.DURATION);

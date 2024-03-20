@@ -22,15 +22,20 @@ export class GlbLoader extends Object3D{
     dracoLoader.setDecoderConfig({ type:'js'});
     dracoLoader.preload();
     this._loader.setDRACOLoader(dracoLoader);
-    this._loader.load('./model/cat-2.glb', this.onLoad, this.onLoading, this.onLoadError);
+    this._loader.load('./model/test38-9.glb', this.onLoad, this.onLoading, this.onLoadError);
   }
 
   onLoad = (gltf:any)=>{
     const model = gltf.scene;
     this._model = model;
-    model.rotation.y = 45;
-    model.rotation.z = -50;
+    model.rotation.x = -90;
+    model.rotation.z = 90;
+    // model.scale.set(10,10,10)
+    // model.position.set(-10,0,0)
     this.add(model)
+    console.log(model);
+    
+    
   };
   onLoading = (e:Event)=>{
     console.log(e);
