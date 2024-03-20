@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import type {LoginFormData} from'../../../type/userType'
-import { reqLogin } from "../../../api/user";
+import { reLogin } from "../../../api/user";
 
 //创建用户仓库
 let useUserStore = defineStore({
@@ -11,7 +11,7 @@ let useUserStore = defineStore({
   },
   actions:{
   async userLogin(data:LoginFormData){
-    let result =  await reqLogin(data);
+    let result =  await reLogin(data);
     console.log(result);
   }
 

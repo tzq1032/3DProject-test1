@@ -1,13 +1,15 @@
 
 // 二次封装axios
 import axios from 'axios'
-// import { ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 // import { useUserStore } from '../store/users' 
 let request = axios.create({
-  baseURL: import.meta.env.VITE_APP_BASE_API,
+  // 环境变量.env.development
+  //  baseURL:import.meta.env.VITE_APP_BASE_API ,
+  baseURL:'/api',
   timeout: 5000,
 })
-
+//请求使用拦截器
 request.interceptors.request.use(
   (config) => {
     // let userStore = useUserStore()
@@ -20,7 +22,7 @@ request.interceptors.request.use(
     return Promise.reject(error)
   },
 )
-
+//响应拦截器，参数是成功与失败两个函数。
 request.interceptors.response.use(
   (response) => {
     if (response.status === 200) {
@@ -56,10 +58,10 @@ request.interceptors.response.use(
         message = error.response.data.message
         break
     }
-    // ElMessage({
-    //   type: 'error',
-    //   message,
-    // })
+    ElMessage({
+      type: 'error',
+      message,
+    })
     return Promise.reject(error)
   },
 )

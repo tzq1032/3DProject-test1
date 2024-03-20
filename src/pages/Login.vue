@@ -30,12 +30,16 @@
 
 import { ref,reactive} from 'vue'
 import { useUserStore } from '../store/users';
+import {useRouter} from 'vue-router';
 
-let loginForm= reactive({username:'admin',password:'111111'})
+let loginForm= reactive({username:'admin',password:'123456'})
 let showPassword =ref(false) 
 let useStore = useUserStore()
+let router = useRouter();
+
 let login = ()=>{
   useStore.userLogin(loginForm)
+  router.push('/home')
 }
 
 let togglePasswordVisibility = ()=> {
