@@ -56,10 +56,10 @@ let togglePasswordVisibility = ()=> {
   }
   .primary {
     text-align: center;
-  background-color: #71b0e4;
+    background-color: #71b0e4;
   }
   .elevation-12{
-  top: 300px;
+    top: 30vh;
   }
 
 </style>
