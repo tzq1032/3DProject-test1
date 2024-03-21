@@ -4,12 +4,19 @@ import NotFound from "../pages/404.vue"
 import Platform from "../pages/Platform.vue";
 import Home from "../components/Home.vue";
 import Login from "../pages/Login.vue";
+import Cesium from "../pages/Cesium.vue";
 
 const routes: Array <RouteRecordRaw> = [
   {
     name: 'login',
     path: '/',
     component: Login,
+    props: true,
+  },
+  {
+    name: 'Cesium',
+    path: '/cesium',
+    component: Cesium,
     props: true,
   },
   {

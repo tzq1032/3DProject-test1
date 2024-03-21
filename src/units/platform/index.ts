@@ -24,7 +24,6 @@ const Static = {
   DURATION: 1600,
   CAMERA_FAR: 50
 };
-
 export class Platform extends EventDispatcher {
   _canvas:any = null;
   __camera:PerspectiveCamera; // 摄像头
@@ -115,7 +114,6 @@ export class Platform extends EventDispatcher {
   start(){
     this.ready();
     this.setBackGround()
-   
   }
   boothInit(){
     const g = new GlbLoader();
